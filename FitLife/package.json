@@ -1,0 +1,64 @@
+{
+  "name": "fitlife",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "description": "FitLife — a mobile-first fitness & health tracker desktop app built with React, Vite, Tailwind, Framer Motion, Recharts, Howler.js and Electron.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "electron:dev": "concurrently -k -n VITE,ELECTRON -c cyan,magenta \"vite --port 5173 --strictPort\" \"wait-on tcp:127.0.0.1:5173 && electron .\"",
+    "electron:build": "vite build && electron-builder",
+    "dist": "vite build && electron-builder --win"
+  },
+  "dependencies": {
+    "framer-motion": "^11.0.0",
+    "howler": "^2.2.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0",
+    "recharts": "^2.12.7"
+  },
+  "build": {
+    "appId": "com.fitlife.app",
+    "productName": "FitLife",
+    "directories": {
+      "output": "release",
+      "buildResources": "electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": "portable",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "FitLife-${version}-portable.exe"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.healthcare-fitness"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "Health"
+    }
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
+    "concurrently": "^10.0.1",
+    "cross-env": "^10.1.0",
+    "electron": "^42.3.0",
+    "electron-builder": "^26.8.1",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "vite": "^5.4.0",
+    "wait-on": "^9.0.10"
+  }
+}

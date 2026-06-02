@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($pkgs = @\\('react','react-dom','react-router-dom','recharts','framer-motion','howler','vite','tailwindcss','autoprefixer','postcss'\\); foreach \\($p in $pkgs\\) { if \\(Test-Path \"node_modules\\\\$p\"\\) { \"OK   $p\" } else { \"MISS $p\" } }; \"--- vite bin ---\"; if \\(Test-Path \"node_modules\\\\.bin\\\\vite.cmd\"\\) { \"vite.cmd present\" } else { \"no vite.cmd\" })"
+    ]
+  }
+}
